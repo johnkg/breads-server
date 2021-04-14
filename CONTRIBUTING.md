@@ -54,6 +54,19 @@ and then click on Next.
 
 -   Now open the MySQL Workbench and create a database with `CREATE DATABASE bread_server` and use it with `USE bread_server`
 
+**For Mac:**
+
+-   Depending on your macOS version, you might need to download an older version (8.0.21) from [here](https://downloads.mysql.com/archives/). Download both Community Server and mySQL WorkBench. Note: 8.0.23 does not work on Big Sur.
+
+-   Open the installer, agree with the license and choose standard install option and press next.
+
+-   Click on next till you reach Authentication Method, in Authentication Method choose
+    `Use Legacy Authentication Method`
+
+-   Set password for the root. And click on Next till the installation will finish.
+
+-   Now open the MySQL Workbench and create a database with `CREATE DATABASE bread_server` and use it with `USE bread_server`
+
 </details>
 
 6. Import seed data (Before this step database must be created see **step 5 last point**)
@@ -97,7 +110,12 @@ and then click on Next.
     - `EMAIL_LOGIN` - email address
     - `EMAIL_PASSWORD` - email password
     - `EMAIL_URL` - frontend url (i.e 'http://localhost:3000')
-    - At the end `.env` file will look like this:
+    
+    **Chrome Webdriver** - Used as a fallback to get reading data when the initial scrape fails. [Instructions to download here.](https://splinter.readthedocs.io/en/latest/drivers/chrome.html)
+
+    - `CHROMEDRIVER_DIR` - Place in the directory of the script and then copy the relative path and paste it here. If it's in a different directory, you'll need the complete path.
+    
+    At the end `.env` file will look like this:
 
         ```md
         PORT=<CUSTOM_PORT_NUMBER>
@@ -114,6 +132,8 @@ and then click on Next.
         SECRET_KEY=thisisasecretkey
 
         LINK_PREVIEW_KEY=<YOUR_CLOUDINARY_CLOUD_NAME>
+
+        CHROMEDRIVER_DIR=<PATH_TO_WEBDRIVER>
 
         LOCAL_CORS=http://localhost:3000
         ```
